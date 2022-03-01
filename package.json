@@ -1,0 +1,35 @@
+{
+  "name": "twitchrankbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./dist/server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/http-errors": "^1.8.2",
+    "@types/morgan": "^1.9.3",
+    "axios": "^0.26.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "fastify": "^3.27.2",
+    "fastify-cors": "^6.0.3",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5",
+    "yarn": "^1.22.17",
+    "@types/node": "^17.0.21",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "tslib": "^2.3.1"
+  }
+}
