@@ -40,7 +40,12 @@ export class ApexScraper {
         this.axiosServices.playerStatRoute = await value;
         await this.axiosServices.carreerStatApexPlayer.then(async result => {
             this.userData = await JSON.parse(result.data as unknown as string);
-            this.parseData.rankScore = await this.userData.data.segments[0].stats.rankScore;
+            if(this.userData.data.segments.length>0) {
+                this.parseData.rankScore = await this.userData.data.segments[0].stats.rankScore;
+            }
+            else{
+                return;
+            }
         });
         if (typeof this.parseData === "undefined") {
             return "Not Found"
