@@ -11,7 +11,7 @@ export class ApexScraper {
     private userData;
     private parseData: InterfaceResponse;
     private formatPlayerData: InterfaceScraped;
-
+    private respawnPoint:string;
     constructor() {
         this.axiosServices = new AxiosServices(new Axios(), new Routes());
         this.parseData = {
@@ -38,6 +38,7 @@ export class ApexScraper {
 
     async playerDataRetrieve(value: InterfacesRequest): Promise<string> {
         this.axiosServices.playerStatRoute = await value;
+        this.respawnPoint = value.respawnPoint
         await this.axiosServices.carreerStatApexPlayer.then(async result => {
             this.userData = await JSON.parse(result.data as unknown as string);
             try {
@@ -62,6 +63,6 @@ export class ApexScraper {
     }
 
     formatString(): string {
-        return `[${this.parsePlayerData().rank}] - ${this.parsePlayerData().respawnPoint} RP`
+        return `[${this.parsePlayerData().rank}]${this.respawnPoint ==="true"? " - "+this.parsePlayerData().respawnPoint+"RP":""}`
     }
 }
